@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Namma Tulunadu
 
 Namma Tulunadu is a Coastal Karnataka tourism application. Its browser client is a React single-page app and its API is a Java 21 Spring Boot application backed by MySQL. The Java API owns authentication, persistence, and server-side Google Gemini calls; the frontend never receives database credentials, JWT signing keys, or Gemini API keys.
@@ -151,3 +152,7 @@ scripts/
 - Add/update endpoint documentation in [docs/api.md](docs/api.md) alongside controller changes.
 - For API checks in Postman, log in and use the returned `token` as a Bearer token for protected endpoints.
 - The current CORS configuration includes both Vite's default origin and the configured frontend origin; production origins must be configured explicitly.
+=======
+# NAMMA-TULUNADU
+Smart Tourism Platform for Coastal Karnataka built using Spring Boot, React, MySQL, JWT and Gemini AI.
+>>>>>>> 59061d80dd05e9344bf21383f82249a73d8b7d1f
