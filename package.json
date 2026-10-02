@@ -1,0 +1,12 @@
+{
+  "name": "namma-tulunadu",
+  "version": "1.0.0",
+  "description": "React tourism frontend with a Java 21 Spring Boot and MySQL backend",
+  "scripts": {
+    "test": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-backend.ps1 -Test",
+    "start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-backend.ps1",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build"
+  },
+  "private": true
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function IssueList() {
+            const issues = [
+                { id: 1, title: "Login Bug", description: "User cannot log in", status: "Open", createdDate: "2025-03-25", closedDate: null },
+                { id: 2, title: "UI Overlap", description: "Text overlaps on mobile", status: "Closed", createdDate: "2025-03-20", closedDate: "2025-03-22" },
+                { id: 3, title: "Slow Response", description: "API response is slow", status: "Open", createdDate: "2025-03-23", closedDate: null }
+            ];
+
+            return (
+                <div>
+                    <h1>Issue Tracker</h1>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Created Date</th>
+                                <th>Closed Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {issues.map(issue => (
+                                <tr key={issue.id}>
+                                    <td>{issue.id}</td>
+                                    <td>{issue.title}</td>
+                                    <td>{issue.description}</td>
+                                    <td>{issue.status}</td>
+                                    <td>{issue.createdDate}</td>
+                                    <td>{issue.closedDate ? issue.closedDate : "-"}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<IssueList />, document.getElementById('root'));
+    </script>
+</body>
+</html>

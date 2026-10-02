@@ -1,0 +1,95 @@
+<!-- Create a component Counter with a state variable count initialized to 0. Create Buttons to increment and decrement the count. Simulate fetching initial data for the Counter component using useEffect (functional component) or componentDidMount (class component). Extend the Counter component to Double the count value when a button is clicked. Reset the count to 0 using another button. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Counter: Function and Class</title>
+
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+  <h1>React Counters</h1>
+  <div id="function-root"></div>
+  <hr />
+  <div id="class-root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Functional Component with all buttons
+    function FunctionCounter() {
+      const [count, setCount] = useState(0);
+
+      useEffect(() => {
+        console.log("FunctionCounter has loaded!");
+      }, []);
+
+      return (
+        <div>
+          <h2>Function Component</h2>
+          <p>Count: {count}</p>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+          <button onClick={() => setCount(count - 1)}>Decrement</button>
+          <button onClick={() => setCount(count * 2)}>Double</button>
+          <button onClick={() => setCount(0)}>Reset</button>
+        </div>
+      );
+    }
+
+    // Class Component remains unchanged
+    class Counter extends React.Component {
+      state = {
+        count: 0
+      };
+
+      componentDidMount() {
+        console.log("Counter component has loaded!");
+      }
+
+      increment = () => {
+        this.setState({ count: this.state.count + 1 });
+      };
+
+      decrement = () => {
+        this.setState({ count: this.state.count - 1 });
+      };
+
+      double = () => {
+        this.setState({ count: this.state.count * 2 });
+      };
+
+      reset = () => {
+        this.setState({ count: 0 });
+      };
+
+      render() {
+        return (
+          <div>
+            <h2>Class Component</h2>
+            <p>Count: {this.state.count}</p>
+            <button onClick={this.increment}>Increment</button>
+            <button onClick={this.decrement}>Decrement</button>
+            <button onClick={this.double}>Double</button>
+            <button onClick={this.reset}>Reset</button>
+          </div>
+        );
+      }
+    }
+
+    // Render both components
+    const functionRoot = ReactDOM.createRoot(document.getElementById('function-root'));
+    functionRoot.render(<FunctionCounter />);
+
+    const classRoot = ReactDOM.createRoot(document.getElementById('class-root'));
+    classRoot.render(<Counter />);
+  </script>
+</body>
+</html>
